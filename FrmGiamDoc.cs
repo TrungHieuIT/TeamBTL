@@ -77,7 +77,7 @@ namespace DemoQLNhanVien_BTL_
                 lbSoNgayLam.Visible = true;
                 txtDay.Visible = true;
                 btnChange.Enabled = true;
-                btnUpdate.Enabled = true;
+               
                 btnCalculator.Enabled = true;
             }
             else
@@ -85,7 +85,7 @@ namespace DemoQLNhanVien_BTL_
                 lbSoNgayLam.Visible = false;
                 txtDay.Visible = false;
                 btnChange.Enabled = false;
-                btnUpdate.Enabled = false;
+               
                 btnCalculator.Enabled = false;
 
 
@@ -137,13 +137,30 @@ namespace DemoQLNhanVien_BTL_
             {
                 if (dgvDanhSach.Rows[i].Selected)
                 {
-                    dgvDanhSach.Rows[i].Cells["id"].Value = txtID.Text;
-                    dgvDanhSach.Rows[i].Cells["name"].Value = txtName.Text;
-                    dgvDanhSach.Rows[i].Cells["address"].Value = txtAddress.Text;
-                    dgvDanhSach.Rows[i].Cells["phone"].Value = txtPhone.Text;
-                    dgvDanhSach.Rows[i].Cells["position"].Value = cmbPosition.Text;
+                   
+                    DataGridViewRow row = dgvDanhSach.Rows[i];
+                    string id, name, address, phone, position;
+                    id = txtID.Text;
+                    name = txtName.Text;
+                    address = txtAddress.Text;
+                    phone = txtPhone.Text;
+                    position = cmbPosition.Text;
+
+                   GiamDoc gd = new GiamDoc(id , name,address,phone,position);
+                    cng.Sua(row,gd);
                 }
-            }
+            
+            //for (int i = 0; i < dgvDanhSach.Rows.Count; i++)
+            //{
+            //    if (dgvDanhSach.Rows[i].Selected)
+            //    {
+            //        dgvDanhSach.Rows[i].Cells["id"].Value = txtID.Text;
+            //        dgvDanhSach.Rows[i].Cells["name"].Value = txtName.Text;
+            //        dgvDanhSach.Rows[i].Cells["address"].Value = txtAddress.Text;
+            //        dgvDanhSach.Rows[i].Cells["phone"].Value = txtPhone.Text;
+            //        dgvDanhSach.Rows[i].Cells["position"].Value = cmbPosition.Text;
+            //    }
+        }
         }
             
         }

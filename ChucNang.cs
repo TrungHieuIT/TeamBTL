@@ -8,6 +8,8 @@ using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Data;
 using DemoQLNhanVien_BTL_;
+using System.Windows.Forms;
+
 namespace DemoQLNhanVien_BTL_
 {
    public class ChucNang
@@ -67,10 +69,13 @@ namespace DemoQLNhanVien_BTL_
             return kq;
         }
 
-        public void Change(DataTable daP , QLNV nv )
+        public void Sua(DataGridViewRow row , GiamDoc nv)
         {
-            DataRow row = daP.NewRow();
-
+            row.Cells["id"].Value = nv.ID;
+            row.Cells["name"].Value = nv.Name;
+            row.Cells["address"].Value = nv.Address;
+            row.Cells["phone"].Value = nv.Phone;
+            row.Cells["position"].Value = nv.Position;
         }
         public void Update ()
         {
