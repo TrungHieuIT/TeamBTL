@@ -85,6 +85,7 @@ namespace DemoQLNhanVien_BTL_
         public void Del(int row)
         {
             memberTable.Rows[row].Delete();
+            Update();
         }
     }
 }
