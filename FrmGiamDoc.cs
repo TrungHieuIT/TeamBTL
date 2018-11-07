@@ -111,33 +111,35 @@ namespace DemoQLNhanVien_BTL_
         {
             DataRow row = memberTable.NewRow();
             int a = Convert.ToInt32(txtDay.Text);
+            int chon = 0;
+            ChucNang cng = new ChucNang();
             double kq = 0;
             if (cmbPosition.Text == "Giám Ðốc")
             {
-                GiamDoc gd = new GiamDoc();
-                kq = gd.TinhTienLuong(a);
+                chon = 1;
+                kq = cng.TinhLuong(a, chon);
                 dgvDanhSach.SelectedRows[0].Cells["day"].Value = txtDay.Text;
                 dgvDanhSach.SelectedRows[0].Cells["Luong"].Value = kq.ToString();
             }
             if (cmbPosition.Text == "Phó Giám Đốc")
             {
-                PhoGiamDoc nv = new PhoGiamDoc();
-                kq = nv.TinhTienLuong(a);
+                chon = 2;
+                kq = cng.TinhLuong(a, chon);
                 dgvDanhSach.SelectedRows[0].Cells["day"].Value = txtDay.Text;
                 dgvDanhSach.SelectedRows[0].Cells["Luong"].Value = kq.ToString();
             }
             if (cmbPosition.Text == "Trưởng Phòng")
             {
-                TruongPhong nv = new TruongPhong();
-                kq = nv.TinhTienLuong(a);
+                chon = 3;
+                kq = cng.TinhLuong(a, chon);
 
                 dgvDanhSach.SelectedRows[0].Cells["day"].Value = txtDay.Text;
                 dgvDanhSach.SelectedRows[0].Cells["Luong"].Value = kq.ToString();
             }
             if (cmbPosition.Text == "Nhân Viên")
             {
-                NhanVien nv = new NhanVien();
-                kq = nv.TinhTienLuong(a);
+                chon = 4;
+                kq = cng.TinhLuong(a, chon);
                 dgvDanhSach.SelectedRows[0].Cells["day"].Value = txtDay.Text;
                 dgvDanhSach.SelectedRows[0].Cells["Luong"].Value = kq.ToString();
             }
