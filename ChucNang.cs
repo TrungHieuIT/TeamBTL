@@ -69,13 +69,13 @@ namespace DemoQLNhanVien_BTL_
             return kq;
         }
 
-        public void Sua(DataGridViewRow row , GiamDoc nv)
+        public void Sua(DataRow row , GiamDoc nv)
         {
-            row.Cells["id"].Value = nv.ID;
-            row.Cells["name"].Value = nv.Name;
-            row.Cells["address"].Value = nv.Address;
-            row.Cells["phone"].Value = nv.Phone;
-            row.Cells["position"].Value = nv.Position;
+            row["MaNV"] = nv.ID;
+            row["HoTenNV"] = nv.Name;
+            row["DiaChi"] = nv.Address;
+            row["SDT"] = nv.Phone;
+            row["ChucVu"] = nv.Position;
         }
         public void Update ()
         {

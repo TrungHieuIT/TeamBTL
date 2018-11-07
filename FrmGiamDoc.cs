@@ -32,7 +32,7 @@ namespace DemoQLNhanVien_BTL_
 
         private void btnUpdate_Click(object sender, EventArgs e) //pass
         {
-            Update();
+           cng.Update();
         }
 
         private void dgvDanhSach_CellContentClick(object sender, DataGridViewCellEventArgs e) //pass
@@ -137,8 +137,6 @@ namespace DemoQLNhanVien_BTL_
             {
                 if (dgvDanhSach.Rows[i].Selected)
                 {
-                   
-                    DataGridViewRow row = dgvDanhSach.Rows[i];
                     string id, name, address, phone, position;
                     id = txtID.Text;
                     name = txtName.Text;
@@ -146,7 +144,8 @@ namespace DemoQLNhanVien_BTL_
                     phone = txtPhone.Text;
                     position = cmbPosition.Text;
 
-                   GiamDoc gd = new GiamDoc(id , name,address,phone,position);
+                    GiamDoc gd = new GiamDoc(id , name,address,phone,position);
+                    DataRow row = cng.memberTable.Rows[i];
                     cng.Sua(row,gd);
                 }
             
