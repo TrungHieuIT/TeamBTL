@@ -21,10 +21,39 @@ namespace DemoQLNhanVien_BTL_
             row["DiaChi"] = address;
             row["SDT"] = phone;
             row["ChucVu"] = position;
-            // row["NgayLam"] = txtDay.Text;
-            daT.Rows.Add(row);
-
-            //return daT;
+            daT.Rows.Add(row);       
+        }
+        public double TinhLuong (int soNgay, int chon)
+        {
+            double kq = 0;
+            switch (chon)
+            {
+                case 1:
+                    {
+                        GiamDoc gd = new GiamDoc();
+                        kq =gd.TinhTienLuong(soNgay);
+                        break;      
+                    }
+                case 2:
+                    {
+                        PhoGiamDoc pgd = new PhoGiamDoc();
+                        kq = pgd.TinhTienLuong(soNgay);
+                        break;
+                    }
+                case 3:
+                    {
+                        TruongPhong tp = new TruongPhong();
+                        kq = tp.TinhTienLuong(soNgay);
+                        break;
+                    }
+                case 4:
+                    {
+                        NhanVien nv = new NhanVien();
+                        kq = nv.TinhTienLuong(soNgay);
+                        break;
+                    }
+            }
+            return kq;
         }
     }
 }
