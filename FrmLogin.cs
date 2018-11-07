@@ -41,8 +41,8 @@ namespace DemoQLNhanVien_BTL_
 
             daP = new DataProvider();
             {
-                string userName = daP.GetMD5(txtUserName.Text);
-                string password = daP.GetMD5(txtPass.Text);
+                string userName = txtUserName.Text;
+                string password = txtPass.Text;
                 if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password)) // xét thử rỗng với trống không 
                 {
                     MessageBox.Show("Yêu cầu thông tin chưa đầy đủ ", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);

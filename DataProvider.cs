@@ -30,13 +30,15 @@ namespace DemoQLNhanVien_BTL_
             return str_md5;
         }
         public string type;
-        public bool Login(string username, string password)
+        public bool Login(string UserName, string Password)
         {
+            string userName = GetMD5(UserName);
+            string password = GetMD5(Password);
             string cnStr = "Server =TrungHieuIT\\SQLEXPRESS; Database =EE; Integrated security = true";
             SqlConnection cn = new SqlConnection(cnStr);
             cn.Open();
 
-            string sql = "SELECT Type FROM Users WHERE Username = '" + username + "' AND Password = '" + password + "'";
+            string sql = "SELECT Type FROM Users WHERE Username = '" + userName + "' AND Password = '" + password + "'";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cn;
             cmd.CommandText = sql;
