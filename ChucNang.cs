@@ -12,6 +12,17 @@ namespace DemoQLNhanVien_BTL_
 {
    public class ChucNang
     {
+       public SqlConnection cn;
+       public DataTable memberTable;
+       public SqlDataAdapter da;
+        public DataSet GetData()
+        {
+            DataSet ds = new DataSet();
+            string sql = " Select * FROM DSNhanVien1";
+            da = new SqlDataAdapter(sql, cn);
+            int number = da.Fill(ds);
+            return ds;
+        }
         public void Them (DataTable daT, string id , string name , string phone , string address , string position )
         {
              

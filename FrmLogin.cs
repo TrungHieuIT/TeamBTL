@@ -38,6 +38,7 @@ namespace DemoQLNhanVien_BTL_
         public string type;
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
             daP = new DataProvider();
             {
                 string userName = daP.GetMD5(txtUserName.Text);
@@ -59,14 +60,14 @@ namespace DemoQLNhanVien_BTL_
                         {
                             FrmGiamDoc frmGD = new FrmGiamDoc();
                             frmGD.ShowDialog();
-                            
+
                         }
                         if (daP.type == "2")
                         {
                             FrmQuanLy frmQL = new FrmQuanLy();
                             frmQL.ShowDialog();
                         }
-                      
+
                     }
                     else
                     {
