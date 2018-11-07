@@ -8,12 +8,34 @@ using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Data;
 using DemoQLNhanVien_BTL_;
+using System.Windows.Forms;
+
 namespace DemoQLNhanVien_BTL_
 {
    public class DataProvider
     {
-       // SqlConnection cn; 
-
+      public SqlConnection cnn; 
+       public DataProvider ()
+       {
+            string cnStr = "Server =TrungHieuIT\\SQLEXPRESS; Database =EE; Integrated security = true";
+            SqlConnection cn = new SqlConnection(cnStr);
+        }
+        public void Connection()
+        {
+            try
+            {
+                if (cnn != null && cnn.State == System.Data.ConnectionState.Closed)
+                    cnn.Open();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+        public void DisConnecTion()
+        {
+            cnn.Close();
+        }
         public string GetMD5(string chuoi)
         {
             string str_md5 = "";
@@ -34,23 +56,35 @@ namespace DemoQLNhanVien_BTL_
         {
             string userName = GetMD5(UserName);
             string password = GetMD5(Password);
-            string cnStr = "Server =TrungHieuIT\\SQLEXPRESS; Database =EE; Integrated security = true";
-            SqlConnection cn = new SqlConnection(cnStr);
-            cn.Open();
+
+            DataProvider daP = new DataProvider();
+            daP.Connection();
 
             string sql = "SELECT Type FROM Users WHERE Username = '" + userName + "' AND Password = '" + password + "'";
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = cn;
+            SqlCommand cmd = new SqlCommand(sql);
+            cmd.Connection = daP.cnn;
             cmd.CommandText = sql;
             cmd.CommandType = CommandType.Text;
 
-            type = (string)cmd.ExecuteScalar();
-            cn.Close();
+            try
+            {
+                type = cmd.ExecuteScalar().ToString();
 
-            if (type == "1" || type == "2")
-                return true;
-
-            return false;
+                daP.DisConnecTion();
+                if (type == "1" || type == "2")
+                    return true;
+                return false;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Không lấy được dữ liệu", " error ");
+                throw ex;
+            }
+            finally
+            {
+                daP.DisConnecTion();
+            }
         }
+      
     }
 }
