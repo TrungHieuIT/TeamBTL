@@ -24,8 +24,6 @@ namespace DemoQLNhanVien_BTL_
         ChucNang cng = new ChucNang();
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            
-            
             cng.Them(cng.memberTable, txtID.Text, txtName.Text, txtPhone.Text, txtAddress.Text, cmbPosition.Text);
             dgvDanhSach.DataSource =cng.memberTable;
             txtID.Text = txtDay.Text = txtName.Text = txtAddress.Text = txtPhone.Text = cmbPosition.Text = "";
@@ -34,10 +32,7 @@ namespace DemoQLNhanVien_BTL_
 
         private void btnUpdate_Click(object sender, EventArgs e) //pass
         {
-            
-            SqlCommandBuilder builder = new SqlCommandBuilder(cng.da);
-            cng.da.Update(cng.memberTable);
-            
+            Update();
         }
 
         private void dgvDanhSach_CellContentClick(object sender, DataGridViewCellEventArgs e) //pass
@@ -49,7 +44,7 @@ namespace DemoQLNhanVien_BTL_
                
                 if (row >= 0 && row < dgvDanhSach.Rows.Count)
                 {
-                    cng.memberTable.Rows[row].Delete();
+                    cng.Del(row);
                 }
             }
         }
@@ -99,8 +94,6 @@ namespace DemoQLNhanVien_BTL_
 
         private void btnCalculator_Click(object sender, EventArgs e) // pass
         {
-            
-                //cng.memberTable.NewRow();
             int a = Convert.ToInt32(txtDay.Text);
             int chon = 0;
             ChucNang cng = new ChucNang();
@@ -134,7 +127,6 @@ namespace DemoQLNhanVien_BTL_
                 dgvDanhSach.SelectedRows[0].Cells["day"].Value = txtDay.Text;
                 dgvDanhSach.SelectedRows[0].Cells["Luong"].Value = kq.ToString();
             }
-            //txtID.Clear();
 
 
         }

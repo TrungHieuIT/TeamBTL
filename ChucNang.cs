@@ -66,5 +66,20 @@ namespace DemoQLNhanVien_BTL_
             }
             return kq;
         }
+
+        public void Change(DataTable daP , QLNV nv )
+        {
+            DataRow row = daP.NewRow();
+
+        }
+        public void Update ()
+        {
+            SqlCommandBuilder builder = new SqlCommandBuilder(da);
+            da.Update(memberTable);
+        }
+        public void Del(int row)
+        {
+            memberTable.Rows[row].Delete();
+        }
     }
 }

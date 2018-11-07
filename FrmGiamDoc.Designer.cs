@@ -275,10 +275,10 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(176, 20);
             this.txtID.TabIndex = 0;
-        
             // 
             // dgvDanhSach
             // 
+            this.dgvDanhSach.AllowUserToAddRows = false;
             this.dgvDanhSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDanhSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
