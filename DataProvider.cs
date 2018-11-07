@@ -15,15 +15,13 @@ namespace DemoQLNhanVien_BTL_
    public class DataProvider
     {
       public SqlConnection cnn; 
-       public DataProvider ()
-       {
-            string cnStr = "Server =TrungHieuIT\\SQLEXPRESS; Database =EE; Integrated security = true";
-            SqlConnection cn = new SqlConnection(cnStr);
-        }
+    
         public void Connection()
         {
             try
             {
+                string cnStr = "Server =TrungHieuIT\\SQLEXPRESS; Database =EE; Integrated security = true";
+                 cnn = new SqlConnection(cnStr);
                 if (cnn != null && cnn.State == System.Data.ConnectionState.Closed)
                     cnn.Open();
             }
@@ -57,20 +55,19 @@ namespace DemoQLNhanVien_BTL_
             string userName = GetMD5(UserName);
             string password = GetMD5(Password);
 
-            DataProvider daP = new DataProvider();
-            daP.Connection();
+            Connection();
 
             string sql = "SELECT Type FROM Users WHERE Username = '" + userName + "' AND Password = '" + password + "'";
             SqlCommand cmd = new SqlCommand(sql);
-            cmd.Connection = daP.cnn;
+            
+            cmd.Connection = cnn;
             cmd.CommandText = sql;
             cmd.CommandType = CommandType.Text;
-
+            type = cmd.ExecuteScalar().ToString();
+            DisConnecTion();
             try
             {
-                type = cmd.ExecuteScalar().ToString();
-
-                daP.DisConnecTion();
+                
                 if (type == "1" || type == "2")
                     return true;
                 return false;
@@ -82,7 +79,7 @@ namespace DemoQLNhanVien_BTL_
             }
             finally
             {
-                daP.DisConnecTion();
+                DisConnecTion();
             }
         }
       
