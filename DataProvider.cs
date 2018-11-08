@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 using System.Data;
 using DemoQLNhanVien_BTL_;
 using System.Windows.Forms;
-
+//
 namespace DemoQLNhanVien_BTL_
 {
    public class DataProvider
