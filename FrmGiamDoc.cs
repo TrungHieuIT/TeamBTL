@@ -51,7 +51,7 @@ namespace DemoQLNhanVien_BTL_
 
         private void FrmGiamDoc_Load(object sender, EventArgs e)//pass
         {
-            string cnStr = "Server =TrungHieuIT\\SQLEXPRESS; Database = EE; Integrated security = true ;";
+            string cnStr = "Server =.; Database = EE; Integrated security = true ;";
             cng.cn = new SqlConnection(cnStr);
             DataSet ds = cng.GetData();
             cng.memberTable = ds.Tables[0];
