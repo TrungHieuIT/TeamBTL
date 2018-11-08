@@ -18,7 +18,7 @@ namespace DemoQLNhanVien_BTL_
         {
             InitializeComponent();
         }
-
+        ChucNang cng = new ChucNang();
         private void FrmQuanLy_Load(object sender, EventArgs e)
         {
 
@@ -28,6 +28,13 @@ namespace DemoQLNhanVien_BTL_
         {
             Application.Exit();  
         }
-        
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            cng.Them(cng.memberTable, txtID.Text, txtName.Text, txtPhone.Text, txtAddress.Text, cmbPosition.Text);
+            dgvDanhSachQL.DataSource = cng.memberTable;
+            txtID.Text = txtName.Text = txtAddress.Text = txtPhone.Text = cmbPosition.Text = "";
+            txtID.Focus();
+        }
     }
 }

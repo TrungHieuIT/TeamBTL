@@ -43,15 +43,15 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtPosition = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDanhSachQL = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbPosition = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -63,7 +63,7 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachQL)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -92,7 +92,7 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer2.Panel2.Controls.Add(this.dgvDanhSachQL);
             this.splitContainer2.Size = new System.Drawing.Size(790, 480);
             this.splitContainer2.SplitterDistance = 220;
             this.splitContainer2.TabIndex = 0;
@@ -114,6 +114,7 @@
             // 
             // splitContainer3.Panel2
             // 
+            this.splitContainer3.Panel2.Controls.Add(this.cmbPosition);
             this.splitContainer3.Panel2.Controls.Add(this.label5);
             this.splitContainer3.Panel2.Controls.Add(this.label4);
             this.splitContainer3.Panel2.Controls.Add(this.label3);
@@ -122,7 +123,6 @@
             this.splitContainer3.Panel2.Controls.Add(this.textBox6);
             this.splitContainer3.Panel2.Controls.Add(this.txtPhone);
             this.splitContainer3.Panel2.Controls.Add(this.txtAddress);
-            this.splitContainer3.Panel2.Controls.Add(this.txtPosition);
             this.splitContainer3.Panel2.Controls.Add(this.txtName);
             this.splitContainer3.Panel2.Controls.Add(this.txtID);
             this.splitContainer3.Size = new System.Drawing.Size(790, 220);
@@ -164,6 +164,7 @@
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label5
             // 
@@ -231,13 +232,6 @@
             this.txtAddress.Size = new System.Drawing.Size(142, 20);
             this.txtAddress.TabIndex = 0;
             // 
-            // txtPosition
-            // 
-            this.txtPosition.Location = new System.Drawing.Point(114, 117);
-            this.txtPosition.Name = "txtPosition";
-            this.txtPosition.Size = new System.Drawing.Size(142, 20);
-            this.txtPosition.TabIndex = 0;
-            // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(114, 76);
@@ -252,20 +246,20 @@
             this.txtID.Size = new System.Drawing.Size(142, 20);
             this.txtID.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvDanhSachQL
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDanhSachQL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDanhSachQL.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.name,
             this.address,
             this.phone,
             this.position});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(790, 256);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvDanhSachQL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDanhSachQL.Location = new System.Drawing.Point(0, 0);
+            this.dgvDanhSachQL.Name = "dgvDanhSachQL";
+            this.dgvDanhSachQL.Size = new System.Drawing.Size(790, 256);
+            this.dgvDanhSachQL.TabIndex = 0;
             // 
             // id
             // 
@@ -294,6 +288,19 @@
             this.position.HeaderText = "Chức Vụ";
             this.position.Name = "position";
             // 
+            // cmbPosition
+            // 
+            this.cmbPosition.FormattingEnabled = true;
+            this.cmbPosition.Items.AddRange(new object[] {
+            "Giám Đốc",
+            "Phó Giám Đốc",
+            "Trưởng Phòng ",
+            "Nhân Viên"});
+            this.cmbPosition.Location = new System.Drawing.Point(114, 124);
+            this.cmbPosition.Name = "cmbPosition";
+            this.cmbPosition.Size = new System.Drawing.Size(142, 21);
+            this.cmbPosition.TabIndex = 2;
+            // 
             // FrmQuanLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,7 +323,7 @@
             this.splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachQL)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -338,14 +345,14 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.TextBox txtPosition;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDanhSachQL;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn address;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn position;
+        private System.Windows.Forms.ComboBox cmbPosition;
     }
 }
