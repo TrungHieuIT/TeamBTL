@@ -21,7 +21,7 @@ namespace DemoQLNhanVien_BTL_
         ChucNang cng = new ChucNang();
         private void FrmQuanLy_Load(object sender, EventArgs e)
         {
-            string cnStr = "Server =DESKTOP-7AHBV06\\SQLEXPRESS; Database = QLNV; Integrated security = true ;";
+            string cnStr = "Server =TrungHieuIT\\SQLEXPRESS; Database = EE; Integrated security = true ;";
             cng.cn = new SqlConnection(cnStr);
             DataSet ds = cng.GetData();
             cng.memberTable = ds.Tables[0];
@@ -43,6 +43,8 @@ namespace DemoQLNhanVien_BTL_
 
         private void btnChange_Click(object sender, EventArgs e)
         {
+            label3.Visible = true;
+            cmbPosition.Visible = true;
             for (int i = 0; i < dgvDanhSachQL.Rows.Count; i++)
             {
                 if (dgvDanhSachQL.Rows[i].Selected)
@@ -53,7 +55,6 @@ namespace DemoQLNhanVien_BTL_
                     address = txtAddress.Text;
                     phone = txtPhone.Text;
                     position = cmbPosition.Text;
-
                     GiamDoc gd = new GiamDoc(id, name, address, phone, position);
                     DataRow row = cng.memberTable.Rows[i];
                     cng.Sua(row, gd);
