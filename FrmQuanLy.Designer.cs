@@ -35,6 +35,8 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnChange = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.txtdayQL = new System.Windows.Forms.TextBox();
+            this.labale6 = new System.Windows.Forms.Label();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,8 +53,9 @@
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labale6 = new System.Windows.Forms.Label();
-            this.txtdayQL = new System.Windows.Forms.TextBox();
+            this.Luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayLamViec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Del = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -170,6 +173,22 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // txtdayQL
+            // 
+            this.txtdayQL.Location = new System.Drawing.Point(469, 121);
+            this.txtdayQL.Name = "txtdayQL";
+            this.txtdayQL.Size = new System.Drawing.Size(142, 20);
+            this.txtdayQL.TabIndex = 4;
+            // 
+            // labale6
+            // 
+            this.labale6.AutoSize = true;
+            this.labale6.Location = new System.Drawing.Point(364, 124);
+            this.labale6.Name = "labale6";
+            this.labale6.Size = new System.Drawing.Size(79, 13);
+            this.labale6.TabIndex = 3;
+            this.labale6.Text = "Ngày Làm Việc";
+            // 
             // cmbPosition
             // 
             this.cmbPosition.FormattingEnabled = true;
@@ -264,7 +283,10 @@
             this.name,
             this.address,
             this.phone,
-            this.position});
+            this.position,
+            this.Luong,
+            this.NgayLamViec,
+            this.Del});
             this.dgvDanhSachQL.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDanhSachQL.Location = new System.Drawing.Point(0, 0);
             this.dgvDanhSachQL.Name = "dgvDanhSachQL";
@@ -274,46 +296,56 @@
             // 
             // id
             // 
+            this.id.DataPropertyName = "MaNV";
             this.id.HeaderText = "Mã NV";
             this.id.Name = "id";
+            this.id.Width = 80;
             // 
             // name
             // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.DataPropertyName = "HoTenNV";
             this.name.HeaderText = "Họ Và Tên";
             this.name.Name = "name";
+            this.name.Width = 150;
             // 
             // address
             // 
+            this.address.DataPropertyName = "DiaChi";
             this.address.HeaderText = "Địa Chỉ";
             this.address.Name = "address";
             this.address.Width = 200;
             // 
             // phone
             // 
+            this.phone.DataPropertyName = "SDT";
             this.phone.HeaderText = "SĐT";
             this.phone.Name = "phone";
+            this.phone.Width = 80;
             // 
             // position
             // 
+            this.position.DataPropertyName = "ChucVu";
             this.position.HeaderText = "Chức Vụ";
             this.position.Name = "position";
             // 
-            // labale6
+            // Luong
             // 
-            this.labale6.AutoSize = true;
-            this.labale6.Location = new System.Drawing.Point(364, 124);
-            this.labale6.Name = "labale6";
-            this.labale6.Size = new System.Drawing.Size(79, 13);
-            this.labale6.TabIndex = 3;
-            this.labale6.Text = "Ngay Lam Viec";
+            this.Luong.DataPropertyName = "Luong";
+            this.Luong.HeaderText = "Tiền Lương";
+            this.Luong.Name = "Luong";
             // 
-            // txtdayQL
+            // NgayLamViec
             // 
-            this.txtdayQL.Location = new System.Drawing.Point(469, 121);
-            this.txtdayQL.Name = "txtdayQL";
-            this.txtdayQL.Size = new System.Drawing.Size(142, 20);
-            this.txtdayQL.TabIndex = 4;
+            this.NgayLamViec.DataPropertyName = "NgayLam";
+            this.NgayLamViec.HeaderText = "Ngày Làm Việc";
+            this.NgayLamViec.Name = "NgayLamViec";
+            this.NgayLamViec.Width = 80;
+            // 
+            // Del
+            // 
+            this.Del.HeaderText = "Xóa";
+            this.Del.Name = "Del";
+            this.Del.Width = 50;
             // 
             // FrmQuanLy
             // 
@@ -361,13 +393,16 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.DataGridView dgvDanhSachQL;
+        private System.Windows.Forms.ComboBox cmbPosition;
+        private System.Windows.Forms.TextBox txtdayQL;
+        private System.Windows.Forms.Label labale6;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn address;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn position;
-        private System.Windows.Forms.ComboBox cmbPosition;
-        private System.Windows.Forms.TextBox txtdayQL;
-        private System.Windows.Forms.Label labale6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Luong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayLamViec;
+        private System.Windows.Forms.DataGridViewButtonColumn Del;
     }
 }

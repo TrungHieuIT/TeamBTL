@@ -20,7 +20,7 @@ namespace DemoQLNhanVien_BTL_
         {
             try
             {
-                string cnStr = "Server =DESKTOP-7AHBV06\\SQLEXPRESS; Database =QLNV; Integrated security = true";
+                string cnStr = "Server =TrungHieuIT\\SQLEXPRESS; Database =EE; Integrated security = true";
                  cnn = new SqlConnection(cnStr);
                 if (cnn != null && cnn.State == System.Data.ConnectionState.Closed)
                     cnn.Open();
