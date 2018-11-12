@@ -43,8 +43,7 @@ namespace DemoQLNhanVien_BTL_
 
         private void btnChange_Click(object sender, EventArgs e)
         {
-            label3.Visible = true;
-            cmbPosition.Visible = true;
+            
             for (int i = 0; i < dgvDanhSachQL.Rows.Count; i++)
             {
                 if (dgvDanhSachQL.Rows[i].Selected)
@@ -64,12 +63,21 @@ namespace DemoQLNhanVien_BTL_
 
         private void dgvDanhSachQL_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int col = e.ColumnIndex;
+            int row = e.RowIndex;
+            if (dgvDanhSachQL.Columns[col] is DataGridViewButtonColumn && dgvDanhSachQL.Columns[col].Name == "delete")
+            {
 
+                if (row >= 0 && row < dgvDanhSachQL.Rows.Count)
+                {
+                    cng.Del(row);
+                }
+            }
         }
 
         private void btnCalculator_Click(object sender, EventArgs e)
         {
-            int aa = Convert.ToInt32(txtdayQL.Text);
+            int aa = Convert.ToInt32(txtDay.Text);
             int chon = 0;
             ChucNang cng = new ChucNang();
             double kq = 0;
@@ -77,14 +85,14 @@ namespace DemoQLNhanVien_BTL_
             {
                 chon = 1;
                 kq = cng.TinhLuong(aa, chon);
-                dgvDanhSachQL.SelectedRows[0].Cells["day"].Value = txtdayQL.Text;
+                dgvDanhSachQL.SelectedRows[0].Cells["day"].Value = txtDay.Text;
                 dgvDanhSachQL.SelectedRows[0].Cells["Luong"].Value = kq.ToString();
             }
             if (cmbPosition.Text == "Phó Giám Đốc")
             {
                 chon = 2;
                 kq = cng.TinhLuong(aa, chon);
-                dgvDanhSachQL.SelectedRows[0].Cells["day"].Value = txtdayQL.Text;
+                dgvDanhSachQL.SelectedRows[0].Cells["day"].Value = txtDay.Text;
                 dgvDanhSachQL.SelectedRows[0].Cells["Luong"].Value = kq.ToString();
             }
             if (cmbPosition.Text == "Trưởng Phòng")
@@ -92,15 +100,45 @@ namespace DemoQLNhanVien_BTL_
                 chon = 3;
                 kq = cng.TinhLuong(aa, chon);
 
-                dgvDanhSachQL.SelectedRows[0].Cells["day"].Value = txtdayQL.Text;
+                dgvDanhSachQL.SelectedRows[0].Cells["day"].Value = txtDay.Text;
                 dgvDanhSachQL.SelectedRows[0].Cells["Luong"].Value = kq.ToString();
             }
             if (cmbPosition.Text == "Nhân Viên")
             {
                 chon = 4;
                 kq = cng.TinhLuong(aa, chon);
-                dgvDanhSachQL.SelectedRows[0].Cells["day"].Value = txtdayQL.Text;
+                dgvDanhSachQL.SelectedRows[0].Cells["day"].Value = txtDay.Text;
                 dgvDanhSachQL.SelectedRows[0].Cells["Luong"].Value = kq.ToString();
+            }
+        }
+
+        private void dgvDanhSachQL_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int numrow;
+            numrow = e.RowIndex;
+            txtID.Text = dgvDanhSachQL.Rows[numrow].Cells["id"].Value.ToString();
+            txtName.Text = dgvDanhSachQL.Rows[numrow].Cells["name"].Value.ToString();
+            txtAddress.Text = dgvDanhSachQL.Rows[numrow].Cells["address"].Value.ToString();
+            txtPhone.Text = dgvDanhSachQL.Rows[numrow].Cells["phone"].Value.ToString();
+            cmbPosition.Text = dgvDanhSachQL.Rows[numrow].Cells["position"].Value.ToString();
+
+            if (txtID.Text != "")
+            {
+                lbSoNgayLam.Visible = true;
+                txtDay.Visible = true;
+                btnChange.Enabled = true;
+
+                btnCalculator.Enabled = true;
+            }
+            else
+            {
+                lbSoNgayLam.Visible = false;
+                txtDay.Visible = false;
+                btnChange.Enabled = false;
+
+                btnCalculator.Enabled = false;
+
+
             }
         }
     }
