@@ -144,5 +144,13 @@ namespace DemoQLNhanVien_BTL_
 
             }
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            cng.Update(cng.memberTable);
+            MessageBox.Show("Cập nhập thành công ", "Cập Nhập");
+            txtID.Text = txtDay.Text = txtName.Text = txtAddress.Text = txtPhone.Text = cmbPosition.Text = "";
+            txtID.Focus();
+        }
     }
 }
