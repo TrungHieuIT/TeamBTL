@@ -71,7 +71,7 @@ namespace DemoQLNhanVien_BTL_
 
                 if (row >= 0 && row < dgvDanhSachQL.Rows.Count)
                 {
-                    cng.Del(row);
+                    cng.Del(row,cng.memberTable);
                 }
             }
         }

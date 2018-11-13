@@ -32,7 +32,7 @@ namespace DemoQLNhanVien_BTL_
 
         private void btnUpdate_Click(object sender, EventArgs e) //pass
         {
-            cng.Update();
+            cng.Update(cng.memberTable);
             MessageBox.Show("Cập nhập thành công ", "Cập Nhập");
             txtID.Text = txtDay.Text = txtName.Text = txtAddress.Text = txtPhone.Text = cmbPosition.Text = "";
             txtID.Focus();
@@ -47,9 +47,14 @@ namespace DemoQLNhanVien_BTL_
                
                 if (row >= 0 && row < dgvDanhSach.Rows.Count)
                 {
-                    cng.Del(row);
+                    DialogResult result = MessageBox.Show("Bạn Có muốn xóa", "Xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (result == DialogResult.OK)
+                    {
+                        cng.Del(row,cng.memberTable);
+                    }
                 }
             }
+            cng.Update(cng.memberTable);
         }
 
         private void FrmGiamDoc_Load(object sender, EventArgs e)//pass

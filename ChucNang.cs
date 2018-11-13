@@ -21,13 +21,23 @@ namespace DemoQLNhanVien_BTL_
         {
             DataSet ds = new DataSet();
             string sql = " Select * FROM DSNhanVien1";
-            da = new SqlDataAdapter(sql, cn);
-            int number = da.Fill(ds);
+            DataProvider daP = new DataProvider();
+            daP.Connection();
+            da = new SqlDataAdapter(sql, daP.cnn);
+            da.Fill(ds);
             return ds;
         }
         public void Them (DataTable daT, string id , string name , string phone , string address , string position )
         {
-             
+            foreach(DataRow r in daT.Rows)
+            {
+                if (string.Compare(r["MaNV"].ToString(),id) ==0)
+                {
+                    MessageBox.Show("Trùng Mã Nhân Viên", "Cảnh Báo");
+                    return;
+                }
+                
+            } 
             DataRow row = daT.NewRow();
             row["MaNV"] = id;
             row["HoTenNV"] = name;
@@ -77,15 +87,16 @@ namespace DemoQLNhanVien_BTL_
             row["SDT"] = nv.Phone;
             row["ChucVu"] = nv.Position;
         }
-        public void Update ()
+        public void Update (DataTable daT)
         {
             SqlCommandBuilder builder = new SqlCommandBuilder(da);
-            da.Update(memberTable);
+            da.Update(daT);
         }
-        public void Del(int row)
+        public void Del(int row,DataTable daT)
         {
-            memberTable.Rows[row].Delete();
-            Update();
+            daT.Rows[row].Delete();
+            Update(daT);
+
         }
     }
 }
