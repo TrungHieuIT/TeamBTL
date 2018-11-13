@@ -87,6 +87,23 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, actual);
 
         }
+        [TestMethod]
+        public void TestLoginEmpty()
+        {
+            SetUp();
+            bool expected = false;
+
+            string user = " ";
+            string pass = " ";
+            bool actual = true;
+            if (daP.Login(user, pass) == false)
+            {
+                actual = false;
+
+            }
+            Assert.AreEqual(expected, actual);
+
+        }
 
 
     }
