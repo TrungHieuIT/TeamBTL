@@ -63,6 +63,7 @@ namespace DemoQLNhanVien_BTL_
 
         private void dgvDanhSachQL_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           
             int col = e.ColumnIndex;
             int row = e.RowIndex;
             if (dgvDanhSachQL.Columns[col] is DataGridViewButtonColumn && dgvDanhSachQL.Columns[col].Name == "delete")
@@ -114,6 +115,8 @@ namespace DemoQLNhanVien_BTL_
 
         private void dgvDanhSachQL_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            lbChucVu.Visible = false;
+            cmbPosition.Visible = false;
             int numrow;
             numrow = e.RowIndex;
             txtID.Text = dgvDanhSachQL.Rows[numrow].Cells["id"].Value.ToString();

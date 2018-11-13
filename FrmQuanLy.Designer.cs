@@ -40,7 +40,7 @@
             this.cmbPosition = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbChucVu = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -123,7 +123,7 @@
             this.splitContainer3.Panel2.Controls.Add(this.cmbPosition);
             this.splitContainer3.Panel2.Controls.Add(this.label5);
             this.splitContainer3.Panel2.Controls.Add(this.label4);
-            this.splitContainer3.Panel2.Controls.Add(this.label3);
+            this.splitContainer3.Panel2.Controls.Add(this.lbChucVu);
             this.splitContainer3.Panel2.Controls.Add(this.label2);
             this.splitContainer3.Panel2.Controls.Add(this.label1);
             this.splitContainer3.Panel2.Controls.Add(this.txtPhone);
@@ -220,14 +220,14 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Địa Chỉ ";
             // 
-            // label3
+            // lbChucVu
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 124);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Chức Vụ";
+            this.lbChucVu.AutoSize = true;
+            this.lbChucVu.Location = new System.Drawing.Point(25, 124);
+            this.lbChucVu.Name = "lbChucVu";
+            this.lbChucVu.Size = new System.Drawing.Size(48, 13);
+            this.lbChucVu.TabIndex = 1;
+            this.lbChucVu.Text = "Chức Vụ";
             // 
             // label2
             // 
@@ -386,7 +386,7 @@
         private System.Windows.Forms.Button btnCalculator;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbChucVu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPhone;
