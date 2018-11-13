@@ -77,15 +77,15 @@ namespace DemoQLNhanVien_BTL_
             row["SDT"] = nv.Phone;
             row["ChucVu"] = nv.Position;
         }
-        public void Update ()
+        public void Update (DataTable daT)
         {
             SqlCommandBuilder builder = new SqlCommandBuilder(da);
-            da.Update(memberTable);
+            da.Update(daT);
         }
-        public void Del(int row)
+        public void Del(int row,DataTable daT)
         {
             memberTable.Rows[row].Delete();
-            Update();
+            Update(daT);
         }
     }
 }
