@@ -47,11 +47,13 @@ namespace DemoQLNhanVien_BTL_
                
                 if (row >= 0 && row < dgvDanhSach.Rows.Count)
                 {
+
                     DialogResult result = MessageBox.Show("Bạn Có muốn xóa", "Xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (result == DialogResult.OK)
                     {
                         cng.Del(row,cng.memberTable);
                     }
+
                 }
             }
             cng.Update(cng.memberTable);
