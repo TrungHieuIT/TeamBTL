@@ -38,7 +38,22 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, actual);
 
         }
-        
+        [TestMethod]
+        public void TestLoginQuanLy()
+        {
+            SetUp();
+            bool expected = true;
+            bool actual = true;
+            string user = "Client";
+            string pass = "QuanLy";
+            if (daP.Login(user, pass) == true)
+            {
+                actual = true;
+            }
+            Assert.AreEqual(expected, actual);
+
+        }
+
 
     }
 }
