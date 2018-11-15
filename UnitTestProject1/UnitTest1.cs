@@ -164,6 +164,15 @@ namespace UnitTestProject1
             cn.Them(daTt, "123", "Nguyen Van A", "31 NK", "0123465789", " ");
             Assert.AreEqual(1, daTt.Rows.Count);
         }
+        [TestMethod]
+        public void TestThemEmpty()
+        {
+            SetUp();
+            DataTable daTt = ds.Tables[0];
+            Assert.AreEqual(0, daTt.Rows.Count);
+            cn.Them(daTt, " ", " ", " ", " ", " ");
+            Assert.AreEqual(1, daTt.Rows.Count);
+        }
     }
 }
 
