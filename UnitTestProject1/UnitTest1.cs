@@ -106,6 +106,20 @@ namespace UnitTestProject1
         }
 
 
+
+        [TestMethod]
+        public void TestThem()
+        {
+            SetUp();
+            DataTable daTt = ds.Tables[0];
+            Assert.AreEqual(0, daTt.Rows.Count);
+            cn.Them(daTt, "123", "Nguyen Van A", "31 NK", "0123465789", "Nhân Viên");
+            Assert.AreEqual(1, daTt.Rows.Count);
+
+        }
+
+
+
     }
 }
 
