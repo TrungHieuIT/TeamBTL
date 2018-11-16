@@ -198,6 +198,19 @@ namespace UnitTestProject1
             Assert.AreEqual("Nguyen Van B", daTs.Rows[0][1]);
         }
 
+
+        [TestMethod]
+        public void TestSuaDiaChi()
+        {
+            SetUp();
+            DataTable daTs = ds.Tables[0];
+            cn.Them(daTs, "123", "Nguyen Van A", "acb", "0123", "Nhân Viên");
+            GiamDoc gd = new GiamDoc("123", "Nguyen Van A", "31 NK", "0123", "Nhân Viên");
+
+            cn.Sua(daTs.Rows[0], gd);
+            Assert.AreEqual("31 NK", daTs.Rows[0][2]);
+        }
+
     }
 }
 
