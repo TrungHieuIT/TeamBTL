@@ -205,9 +205,9 @@ namespace UnitTestProject1
             SetUp();
             DataTable daTs = ds.Tables[0];
             cn.Them(daTs, "123", "Nguyen Van A", "acb", "0123", "Nhân Viên");
-            GiamDoc gd = new GiamDoc("123", "Nguyen Van A", "371 NK", "0123", "Nhân Viên");
+            GiamDoc gd = new GiamDoc("123", "Nguyen Van A", "3711 NK", "0123", "Nhân Viên");
             cn.Sua(daTs.Rows[0], gd);
-            Assert.AreEqual("371 NK", daTs.Rows[0][2]);
+            Assert.AreEqual("3711 NK", daTs.Rows[0][2]);
         }
 
     }
