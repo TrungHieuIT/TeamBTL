@@ -221,6 +221,18 @@ namespace UnitTestProject1
             Assert.AreEqual("0123456789", daTs.Rows[0][3]);
         }
 
+        [TestMethod]
+        public void TestSuaChucVu()
+        {
+            SetUp();
+            DataTable daTs = ds.Tables[0];
+            cn.Them(daTs, "123", "Nguyen Van A", "acb", "0123", "Nhân Viên");
+            GiamDoc gd = new GiamDoc("123", "Nguyen Van A", "3711 NK", "0123456789", "Giam Doc");
+            cn.Sua(daTs.Rows[0], gd);
+            Assert.AreEqual("Giam Doc", daTs.Rows[0][4]);
+        }
+
+
     }
 }
 
