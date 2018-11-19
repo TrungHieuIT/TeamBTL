@@ -96,7 +96,7 @@ namespace DemoQLNhanVien_BTL_
         {
 
             daT.Rows[row].Delete();
-            Update(daT);
+            da.Update(daT);
 
         }
     }
