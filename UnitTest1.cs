@@ -284,6 +284,44 @@ namespace UnitTestProject1
             cn.Del(0, daTx);
 
         }
+        [TestMethod]
+        public void TestXoaGiua()
+        {
+            SetUp();
+            DataTable daTx = ds.Tables[0];
+            cn.Them(daTx, "1232123", "Nguyen Van A", "acb", "0123", "Nhân Viên");//dong 0
+            cn.Them(daTx, "12343", "Nguyen Van B", "acb", "0123", "Nhân Viên");//dong muon xoa 1
+            cn.Them(daTx, "12351", "Nguyen Van C", "acb", "0123", "Nhân Viên");//dong 2
+            cn.Them(daTx, "12353", "Nguyen Van D", "acb", "0123", "Nhân Viên");
+            cn.Them(daTx, "10353", "Nguyen Van E", "acb", "0123", "Nhân Viên");
+
+            cn.Del(2, daTx);// xoa 1 dong muon xoa
+            Assert.AreEqual(4, daTx.Rows.Count);// so dong con lai
+            cn.Del(0, daTx);//xoa nhung dong con lai
+            cn.Del(0, daTx);
+            cn.Del(0, daTx);
+            cn.Del(0, daTx);
+
+        }
+        [TestMethod]
+        public void TestXoaCuoi()
+        {
+            SetUp();
+            DataTable daTx = ds.Tables[0];
+            cn.Them(daTx, "1232123", "Nguyen Van A", "acb", "0123", "Nhân Viên");//dong 0
+            cn.Them(daTx, "12343", "Nguyen Van B", "acb", "0123", "Nhân Viên");//dong muon xoa 1
+            cn.Them(daTx, "12351", "Nguyen Van C", "acb", "0123", "Nhân Viên");//dong 2
+            cn.Them(daTx, "12353", "Nguyen Van D", "acb", "0123", "Nhân Viên");
+            cn.Them(daTx, "10353", "Nguyen Van E", "acb", "0123", "Nhân Viên");
+
+            cn.Del(4, daTx);// xoa 1 dong muon xoa
+            Assert.AreEqual(4, daTx.Rows.Count);// so dong con lai
+            cn.Del(0, daTx);//xoa nhung dong con lai
+            cn.Del(0, daTx);
+            cn.Del(0, daTx);
+            cn.Del(0, daTx);
+
+        }
     }
 }
 
