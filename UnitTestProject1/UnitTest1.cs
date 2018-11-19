@@ -177,7 +177,16 @@ namespace UnitTestProject1
             cn.Them(daTt, "123", "Nguyen Van A", "31 NK", "0123465789", "Nhan Vien");//THEM VI TRI 1 TRUNG 0
             Assert.AreEqual(1, daTt.Rows.Count);// 1 DUNG 2 SAI
         }
-
+        [TestMethod]
+        public void TestThemNhieu()
+        {
+            SetUp();
+            DataTable daTt = ds.Tables[0];//KHOI TAO
+            cn.Them(daTt, "123", "Nguyen Van A", "31 NK", "0123465789", "Nhan Vien");//THEM VI TRI 0
+            cn.Them(daTt, "122", "Nguyen Van C", "31 NK", "0123465789", "Nhan Vien");
+            cn.Them(daTt, "124", "Nguyen Van B", "31 NK", "0123465789", "Nhan Vien");//THEM VI TRI 1 TRUNG 0
+            Assert.AreEqual(3, daTt.Rows.Count);// 1 DUNG 2 SAI
+        }
         [TestMethod]
         public void TestSuaID()
         {
