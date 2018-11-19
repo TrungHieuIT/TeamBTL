@@ -21,7 +21,7 @@ namespace DemoQLNhanVien_BTL_
         ChucNang cng = new ChucNang();
         private void FrmQuanLy_Load(object sender, EventArgs e)
         {
-            string cnStr = "Server =DESKTOP-7AHBV06\\SQLEXPRESS; Database =QLNV; Integrated security = true ;";
+            string cnStr = ".; Database =EE; Integrated security = true ;";
             cng.cn = new SqlConnection(cnStr);
             DataSet ds = cng.GetData();
             cng.memberTable = ds.Tables[0];
