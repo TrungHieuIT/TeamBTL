@@ -32,7 +32,10 @@ namespace DemoQLNhanVien_BTL_
 
         private void btnUpdate_Click(object sender, EventArgs e) //pass
         {
-           cng.Update();
+            cng.Update(cng.memberTable);
+            MessageBox.Show("Cập nhập thành công ", "Cập Nhập");
+            txtID.Text = txtDay.Text = txtName.Text = txtAddress.Text = txtPhone.Text = cmbPosition.Text = "";
+            txtID.Focus();
         }
 
         private void dgvDanhSach_CellContentClick(object sender, DataGridViewCellEventArgs e) //pass
@@ -44,14 +47,23 @@ namespace DemoQLNhanVien_BTL_
                
                 if (row >= 0 && row < dgvDanhSach.Rows.Count)
                 {
-                    cng.Del(row);
+
+                    DialogResult result = MessageBox.Show("Bạn Có muốn xóa", "Xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (result == DialogResult.OK)
+                    {
+                        cng.Del(row,cng.memberTable);
+                    }
+
                 }
             }
+            cng.Update(cng.memberTable);
         }
 
         private void FrmGiamDoc_Load(object sender, EventArgs e)//pass
         {
+
             string cnStr = "Server =.; Database = EE; Integrated security = true ;";
+
             cng.cn = new SqlConnection(cnStr);
             DataSet ds = cng.GetData();
             cng.memberTable = ds.Tables[0];
@@ -127,7 +139,8 @@ namespace DemoQLNhanVien_BTL_
                 dgvDanhSach.SelectedRows[0].Cells["day"].Value = txtDay.Text;
                 dgvDanhSach.SelectedRows[0].Cells["Luong"].Value = kq.ToString();
             }
-
+            txtID.Text = txtDay.Text = txtName.Text = txtAddress.Text = txtPhone.Text = cmbPosition.Text = "";
+            txtID.Focus();
 
         }
 
@@ -148,18 +161,9 @@ namespace DemoQLNhanVien_BTL_
                     DataRow row = cng.memberTable.Rows[i];
                     cng.Sua(row,gd);
                 }
-            
-            //for (int i = 0; i < dgvDanhSach.Rows.Count; i++)
-            //{
-            //    if (dgvDanhSach.Rows[i].Selected)
-            //    {
-            //        dgvDanhSach.Rows[i].Cells["id"].Value = txtID.Text;
-            //        dgvDanhSach.Rows[i].Cells["name"].Value = txtName.Text;
-            //        dgvDanhSach.Rows[i].Cells["address"].Value = txtAddress.Text;
-            //        dgvDanhSach.Rows[i].Cells["phone"].Value = txtPhone.Text;
-            //        dgvDanhSach.Rows[i].Cells["position"].Value = cmbPosition.Text;
-            //    }
-        }
+             }
+            txtID.Text = txtDay.Text = txtName.Text = txtAddress.Text = txtPhone.Text = cmbPosition.Text = "";
+            txtID.Focus();
         }
             
         }

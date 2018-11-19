@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 using System.Data;
 using DemoQLNhanVien_BTL_;
 using System.Windows.Forms;
-
+//
 namespace DemoQLNhanVien_BTL_
 {
    public class DataProvider
@@ -21,6 +21,7 @@ namespace DemoQLNhanVien_BTL_
             try
             {
                 string cnStr = "Server =.; Database =EE; Integrated security = true";
+
                  cnn = new SqlConnection(cnStr);
                 if (cnn != null && cnn.State == System.Data.ConnectionState.Closed)
                     cnn.Open();
@@ -49,9 +50,14 @@ namespace DemoQLNhanVien_BTL_
 
             return str_md5;
         }
-        public string type;
+        public string type = null;
         public bool Login(string UserName, string Password)
         {
+            if (string.IsNullOrEmpty(UserName) || string.IsNullOrEmpty(Password))
+            {
+                return false;
+            }
+          
             string userName = GetMD5(UserName);
             string password = GetMD5(Password);
 
@@ -63,14 +69,18 @@ namespace DemoQLNhanVien_BTL_
             cmd.Connection = cnn;
             cmd.CommandText = sql;
             cmd.CommandType = CommandType.Text;
-            type = cmd.ExecuteScalar().ToString();
+           // if(cmd.ExecuteScalar().ToString() != null)
+           
+                 type = (string)cmd.ExecuteScalar();
+           
+           
             DisConnecTion();
             try
             {
-                
                 if (type == "1" || type == "2")
                     return true;
-                return false;
+                else
+                    return false;
             }
             catch (SqlException ex)
             {
