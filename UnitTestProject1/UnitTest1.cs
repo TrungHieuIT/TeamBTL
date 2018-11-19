@@ -324,7 +324,23 @@ namespace UnitTestProject1
             cn.Del(0, daTa);
             cn.Del(0, daTa);
         }
-       
+        [TestMethod]
+        public void TestUpdateID()
+        {
+            SetUp();
+            DataTable daTa = ds.Tables[0];
+            cn.Them(daTa, "12332", "Nguyen Van A", "acb", "0123", "Nhân Viên");
+            cn.Them(daTa, "1564", "Nguyen Van B", "acb", "0123", "Nhân Viên");
+            cn.Them(daTa, "123532", "Nguyen Van C", "acb", "0123", "Nhân Viên");
+            cn.Update(daTa);
+
+            DataTable tbNew = ds.Tables[0];
+            Assert.AreEqual(3, tbNew.Rows.Count);
+            cn.Del(0, daTa);
+            cn.Del(0, daTa);
+            cn.Del(0, daTa);
+
+        }
     }
 }
 
