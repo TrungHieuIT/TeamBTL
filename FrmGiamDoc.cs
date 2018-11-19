@@ -110,7 +110,7 @@ namespace DemoQLNhanVien_BTL_
             int chon = 0;
             ChucNang cng = new ChucNang();
             double kq = 0;
-            if (cmbPosition.Text == "Giám Ðốc")
+            if (cmbPosition.Text == "Giám Đốc")
             {
                 chon = 1;
                 kq = cng.TinhLuong(a, chon);
