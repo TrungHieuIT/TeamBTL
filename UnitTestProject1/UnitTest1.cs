@@ -274,6 +274,16 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, actual);
 
         }
+        [TestMethod]
+        public void TesTTinhLuongNV()
+        {
+            int soNgayLam = 26;
+            int chon = 4;
+            double expected = 26 * 1.2 * luong;
+            double actual = cn.TinhLuong(soNgayLam, chon);
+            Assert.AreEqual(expected, actual);
+
+        }
     }
 }
 
