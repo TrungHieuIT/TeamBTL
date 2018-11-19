@@ -281,6 +281,20 @@ namespace UnitTestProject1
             cn.Del(0, daTx);
             cn.Del(0, daTx);
         }
+        [TestMethod]
+        public void TestXoaSDT()
+        {
+            SetUp();
+            DataTable daTx = ds.Tables[0];
+            cn.Them(daTx, "1232123", "Nguyen Van A", "acb", "0123", "Nhân Viên");
+            cn.Them(daTx, "12343", "Nguyen Van B ", "acb ", " ", "Nhân Viên");
+            cn.Them(daTx, "12353", "Nguyen Van C", "acb", "0123", "Nhân Viên");
+
+            cn.Del(1, daTx);
+            Assert.AreEqual(2, daTx.Rows.Count);
+            cn.Del(0, daTx);
+            cn.Del(0, daTx);
+        }
 
     }
 }
