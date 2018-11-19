@@ -243,7 +243,27 @@ namespace UnitTestProject1
             cn.Sua(daTs.Rows[0], gd);
             Assert.AreEqual("Giam Doc", daTs.Rows[0][4]);
         }
-        
+        private int luong = 200000;
+        [TestMethod]
+        public void TesTTinhLuongGD()
+        {
+            int soNgayLam = 26;
+            int chon = 1;
+            double expected = 26 * 2.5 * luong;
+            double actual = cn.TinhLuong(soNgayLam, chon);
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void TesTTinhLuongPGD()
+        {
+            int soNgayLam = 26;
+            int chon = 2;
+            double expected = 26 * 2.0 * luong;
+            double actual = cn.TinhLuong(soNgayLam, chon);
+            Assert.AreEqual(expected, actual);
+
+        }
     }
 }
 
