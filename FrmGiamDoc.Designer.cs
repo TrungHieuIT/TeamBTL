@@ -114,7 +114,7 @@
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.BackgroundImage = global::DemoQLNhanVien_BTL_.Properties.Resources.milky_way_starry_sky_night_sky_star_956999;
+            this.splitContainer3.Panel1.BackColor = System.Drawing.Color.MidnightBlue;
             this.splitContainer3.Panel1.Controls.Add(this.btnCalculator);
             this.splitContainer3.Panel1.Controls.Add(this.btnUpdate);
             this.splitContainer3.Panel1.Controls.Add(this.btnChange);
@@ -122,7 +122,7 @@
             // 
             // splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel2.BackgroundImage = global::DemoQLNhanVien_BTL_.Properties.Resources.milky_way_starry_sky_night_sky_star_956999;
+            this.splitContainer3.Panel2.BackColor = System.Drawing.Color.MidnightBlue;
             this.splitContainer3.Panel2.Controls.Add(this.cmbPosition);
             this.splitContainer3.Panel2.Controls.Add(this.txtDay);
             this.splitContainer3.Panel2.Controls.Add(this.lbSoNgayLam);
@@ -314,7 +314,7 @@
             // dgvDanhSach
             // 
             this.dgvDanhSach.AllowUserToAddRows = false;
-            this.dgvDanhSach.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.dgvDanhSach.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvDanhSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDanhSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,

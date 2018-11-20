@@ -113,7 +113,7 @@ namespace DemoQLNhanVien_BTL_
             double kq = 0;
 
             
-            if (cmbPosition.Text == "Giám Ðốc")
+            if (cmbPosition.Text == "Giám Đốc")
 
             {
                 chon = 1;

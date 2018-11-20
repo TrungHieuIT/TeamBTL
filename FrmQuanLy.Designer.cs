@@ -54,7 +54,7 @@
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.position = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayLamViec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -83,8 +83,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1078, 509);
-            this.splitContainer1.SplitterDistance = 158;
+            this.splitContainer1.Size = new System.Drawing.Size(1041, 509);
+            this.splitContainer1.SplitterDistance = 152;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer2
@@ -101,7 +101,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dgvDanhSachQL);
-            this.splitContainer2.Size = new System.Drawing.Size(916, 509);
+            this.splitContainer2.Size = new System.Drawing.Size(885, 509);
             this.splitContainer2.SplitterDistance = 233;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -114,7 +114,7 @@
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.BackgroundImage = global::DemoQLNhanVien_BTL_.Properties.Resources.milky_way_starry_sky_night_sky_star_956999;
+            this.splitContainer3.Panel1.BackColor = System.Drawing.Color.Navy;
             this.splitContainer3.Panel1.Controls.Add(this.btnCalculator);
             this.splitContainer3.Panel1.Controls.Add(this.btnUpdate);
             this.splitContainer3.Panel1.Controls.Add(this.btnChange);
@@ -123,11 +123,10 @@
             // 
             // splitContainer3.Panel2
             // 
-
+            this.splitContainer3.Panel2.BackColor = System.Drawing.Color.Navy;
             this.splitContainer3.Panel2.Controls.Add(this.txtDay);
             this.splitContainer3.Panel2.Controls.Add(this.lbSoNgayLam);
             this.splitContainer3.Panel2.Controls.Add(this.cmbPosition);
-
             this.splitContainer3.Panel2.Controls.Add(this.label5);
             this.splitContainer3.Panel2.Controls.Add(this.label4);
             this.splitContainer3.Panel2.Controls.Add(this.lbChucVu);
@@ -137,7 +136,7 @@
             this.splitContainer3.Panel2.Controls.Add(this.txtAddress);
             this.splitContainer3.Panel2.Controls.Add(this.txtName);
             this.splitContainer3.Panel2.Controls.Add(this.txtID);
-            this.splitContainer3.Size = new System.Drawing.Size(916, 233);
+            this.splitContainer3.Size = new System.Drawing.Size(885, 233);
             this.splitContainer3.SplitterDistance = 36;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -151,10 +150,8 @@
             this.btnCalculator.Size = new System.Drawing.Size(83, 30);
             this.btnCalculator.TabIndex = 0;
             this.btnCalculator.Text = "Tính Lương";
-
-            this.btnCalculator.UseVisualStyleBackColor = true;
+            this.btnCalculator.UseVisualStyleBackColor = false;
             this.btnCalculator.Click += new System.EventHandler(this.btnCalculator_Click);
-
             // 
             // btnUpdate
             // 
@@ -166,10 +163,8 @@
             this.btnUpdate.Size = new System.Drawing.Size(83, 30);
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "Cập Nhập";
-
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-
             // 
             // btnChange
             // 
@@ -181,10 +176,8 @@
             this.btnChange.Size = new System.Drawing.Size(83, 30);
             this.btnChange.TabIndex = 0;
             this.btnChange.Text = "Sửa";
-
-            this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.UseVisualStyleBackColor = false;
             this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
-
             // 
             // btnAdd
             // 
@@ -196,8 +189,7 @@
             this.btnAdd.Size = new System.Drawing.Size(83, 30);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Thêm";
-
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtDay
@@ -210,9 +202,11 @@
             // lbSoNgayLam
             // 
             this.lbSoNgayLam.AutoSize = true;
+            this.lbSoNgayLam.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSoNgayLam.ForeColor = System.Drawing.Color.White;
             this.lbSoNgayLam.Location = new System.Drawing.Point(364, 124);
             this.lbSoNgayLam.Name = "lbSoNgayLam";
-            this.lbSoNgayLam.Size = new System.Drawing.Size(79, 13);
+            this.lbSoNgayLam.Size = new System.Drawing.Size(92, 13);
             this.lbSoNgayLam.TabIndex = 3;
             this.lbSoNgayLam.Text = "Ngày Làm Việc";
             // 
@@ -228,14 +222,13 @@
             this.cmbPosition.Name = "cmbPosition";
             this.cmbPosition.Size = new System.Drawing.Size(142, 21);
             this.cmbPosition.TabIndex = 2;
-
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(364, 76);
-
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 1;
@@ -255,14 +248,14 @@
             // 
             // lbChucVu
             // 
-
             this.lbChucVu.AutoSize = true;
+            this.lbChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbChucVu.ForeColor = System.Drawing.Color.White;
             this.lbChucVu.Location = new System.Drawing.Point(25, 124);
             this.lbChucVu.Name = "lbChucVu";
-            this.lbChucVu.Size = new System.Drawing.Size(48, 13);
+            this.lbChucVu.Size = new System.Drawing.Size(55, 13);
             this.lbChucVu.TabIndex = 1;
             this.lbChucVu.Text = "Chức Vụ";
-
             // 
             // label2
             // 
@@ -318,22 +311,21 @@
             // 
             // dgvDanhSachQL
             // 
-
+            this.dgvDanhSachQL.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvDanhSachQL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDanhSachQL.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-
             this.id,
             this.name,
             this.address,
             this.phone,
             this.position,
             this.Luong,
-            this.NgayLamViec,
+            this.day,
             this.delete});
             this.dgvDanhSachQL.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDanhSachQL.Location = new System.Drawing.Point(0, 0);
             this.dgvDanhSachQL.Name = "dgvDanhSachQL";
-            this.dgvDanhSachQL.Size = new System.Drawing.Size(916, 272);
+            this.dgvDanhSachQL.Size = new System.Drawing.Size(885, 272);
             this.dgvDanhSachQL.TabIndex = 0;
             this.dgvDanhSachQL.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachQL_CellContentClick);
             this.dgvDanhSachQL.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDanhSachQL_CellMouseClick);
@@ -378,12 +370,12 @@
             this.Luong.HeaderText = "Tiền Lương";
             this.Luong.Name = "Luong";
             // 
-            // NgayLamViec
+            // day
             // 
-            this.NgayLamViec.DataPropertyName = "NgayLam";
-            this.NgayLamViec.HeaderText = "Ngày Làm Việc";
-            this.NgayLamViec.Name = "NgayLamViec";
-            this.NgayLamViec.Width = 80;
+            this.day.DataPropertyName = "NgayLam";
+            this.day.HeaderText = "Ngày Làm Việc";
+            this.day.Name = "day";
+            this.day.Width = 80;
             // 
             // delete
             // 
@@ -395,9 +387,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.ClientSize = new System.Drawing.Size(1078, 509);
-
+            this.ClientSize = new System.Drawing.Size(1041, 509);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FrmQuanLy";
@@ -449,7 +439,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn position;
         private System.Windows.Forms.DataGridViewTextBoxColumn Luong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayLamViec;
+        private System.Windows.Forms.DataGridViewTextBoxColumn day;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
     }
 }

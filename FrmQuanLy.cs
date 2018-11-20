@@ -80,28 +80,30 @@ namespace DemoQLNhanVien_BTL_
 
         private void btnCalculator_Click(object sender, EventArgs e)
         {
-            int aa = Convert.ToInt32(txtDay.Text);
+            int a = Convert.ToInt32(txtDay.Text);
             int chon = 0;
             ChucNang cng = new ChucNang();
             double kq = 0;
-            if (cmbPosition.Text == "Giám Ðốc")
+           
+            if (cmbPosition.Text == "Giám Đốc")
+
             {
                 chon = 1;
-                kq = cng.TinhLuong(aa, chon);
+                kq = cng.TinhLuong(a, chon);
                 dgvDanhSachQL.SelectedRows[0].Cells["day"].Value = txtDay.Text;
                 dgvDanhSachQL.SelectedRows[0].Cells["Luong"].Value = kq.ToString();
             }
             if (cmbPosition.Text == "Phó Giám Đốc")
             {
                 chon = 2;
-                kq = cng.TinhLuong(aa, chon);
+                kq = cng.TinhLuong(a, chon);
                 dgvDanhSachQL.SelectedRows[0].Cells["day"].Value = txtDay.Text;
                 dgvDanhSachQL.SelectedRows[0].Cells["Luong"].Value = kq.ToString();
             }
             if (cmbPosition.Text == "Trưởng Phòng")
             {
                 chon = 3;
-                kq = cng.TinhLuong(aa, chon);
+                kq = cng.TinhLuong(a, chon);
 
                 dgvDanhSachQL.SelectedRows[0].Cells["day"].Value = txtDay.Text;
                 dgvDanhSachQL.SelectedRows[0].Cells["Luong"].Value = kq.ToString();
@@ -109,10 +111,13 @@ namespace DemoQLNhanVien_BTL_
             if (cmbPosition.Text == "Nhân Viên")
             {
                 chon = 4;
-                kq = cng.TinhLuong(aa, chon);
+                kq = cng.TinhLuong(a, chon);
                 dgvDanhSachQL.SelectedRows[0].Cells["day"].Value = txtDay.Text;
                 dgvDanhSachQL.SelectedRows[0].Cells["Luong"].Value = kq.ToString();
             }
+            txtID.Text = txtDay.Text = txtName.Text = txtAddress.Text = txtPhone.Text = cmbPosition.Text = "";
+            txtID.Focus();
+
         }
 
         private void dgvDanhSachQL_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
